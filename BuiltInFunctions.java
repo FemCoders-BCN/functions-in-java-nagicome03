@@ -1,7 +1,18 @@
 public class BuiltInFunctions {
     public static void main(String[] args) {
 
-        //Ejecuta aquí todos los métodos creados e imprime en la terminal. 
+        //Ejecuta aquí todos los métodos creados e imprime en la terminal.
+        printMessage("Hola");
+        getLenght("Perro");
+        convertToLowercase("GATO");
+        findPrefix("Buenos dias", "dias");
+        replaceCharacters("Buenas tardes", "tardes", "noches");
+        getsSquareRoot(9.2);
+        getPower(2,4);
+        System.out.println(getRandomNumber());
+        maxNumber(4,7);
+
+
 
     }
 
@@ -16,7 +27,9 @@ public class BuiltInFunctions {
         */
 
         // Escribe tu código aquí
-        
+        public static String printMessage(String message){
+            System.out.println(message);
+        }
     
         //Ejercicio 2:
         /**
@@ -30,7 +43,9 @@ public class BuiltInFunctions {
          */
 
         // Escribe tu código aquí
-
+        public static int getLenght(String message){
+            return message.length();
+        }
 
         //Ejercicio 3:
         /**
@@ -44,7 +59,9 @@ public class BuiltInFunctions {
          */
 
         // Escribe tu código aquí
-
+        public static String convertToLowercase(String message){
+            return message.toLowerCase();
+        }
 
         //Ejercicio 4:
         /**
@@ -59,7 +76,9 @@ public class BuiltInFunctions {
          */
 
         // Escribe tu código aquí
-
+        public static Boolean findPrefix(String message, String prefix){
+            return message.contentEquals(prefix.toLowerCase());
+        }
 
         //Ejercicio 5:
         /**
@@ -75,7 +94,9 @@ public class BuiltInFunctions {
          */
 
         // Escribe tu código aquí
-
+        public static String replaceCharacters(String message, char oldChar, char newChar){
+            return  message.replace(oldChar,newChar);
+        }
 
         //Ejercicio 6:
         /**
@@ -89,7 +110,9 @@ public class BuiltInFunctions {
          */
 
         // Escribe tu código aquí
-
+        public static double getsSquareRoot(double number){
+            return Math.sqrt(number);
+        }
 
         //Ejercicio 7:
         /**
@@ -104,7 +127,9 @@ public class BuiltInFunctions {
          */
 
         // Escribe tu código aquí
-
+        public static double getPower(double base, double exponent){
+            return Math.pow(base, exponent);
+        }
 
         //Ejercicio 8:
         /**
@@ -117,7 +142,9 @@ public class BuiltInFunctions {
          */
 
         // Escribe tu código aquí
-
+        public static double getRandomNumber(){
+            return Math.random();
+        }
 
         //Ejercicio 9:
         /**
@@ -132,4 +159,7 @@ public class BuiltInFunctions {
          */
 
         // Escribe tu código aquí
+        public static int maxNumber(int number1, int number2){
+            return Math.max(number1,number2);
+        }
     }
