@@ -3,14 +3,14 @@ public class BuiltInFunctions {
 
         //Ejecuta aquí todos los métodos creados e imprime en la terminal.
         printMessage("Hola");
-        getLenght("Perro");
-        convertToLowercase("GATO");
-        findPrefix("Buenos dias", "dias");
-        replaceCharacters("Buenas tardes", "tardes", "noches");
-        getsSquareRoot(9.2);
-        getPower(2,4);
+        System.out.println(getLenght("Perro"));
+        System.out.println(convertToLowercase("GATO"));
+        System.out.println(findPrefix("Buenos dias", "Buenos"));
+        System.out.println(replaceCharacters("Buenas tardes", 'a', 'e'));
+        System.out.println(getsSquareRoot(9.2));
+        System.out.println(getPower(2.0,4.0));
         System.out.println(getRandomNumber());
-        maxNumber(4,7);
+        System.out.println(maxNumber(4,7));
 
 
 
@@ -27,7 +27,7 @@ public class BuiltInFunctions {
         */
 
         // Escribe tu código aquí
-        public static String printMessage(String message){
+        public static void printMessage(String message){
             System.out.println(message);
         }
     
@@ -77,7 +77,7 @@ public class BuiltInFunctions {
 
         // Escribe tu código aquí
         public static Boolean findPrefix(String message, String prefix){
-            return message.contentEquals(prefix.toLowerCase());
+            return message.startsWith(prefix);
         }
 
         //Ejercicio 5:
