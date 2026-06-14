@@ -30,31 +30,46 @@ public class DiceJack {
         - Imprimir la suma de los números escogidos por el usuario y la suma de los números que salieron en los dados.
         - Imprimir si el usuario ganó o perdió.
         */
-
+        DiceJack diceJack = new DiceJack();
         Scanner scanner= new Scanner(System.in);
         System.out.println("Escoge 3 números del 1 al 6 incluidos");
-        char num1=scanner.next().charAt(0);
-        char num2=scanner.next().charAt(0);
-        char num3=scanner.next().charAt(0);
+        byte num1=scanner.nextByte();
+        byte num2=scanner.nextByte();
+        byte num3=scanner.nextByte();
+
+        if(diceJack.isLessThanOne(num1,num2,num3) || diceJack.isHigherThanSix(num1,num2,num3)){
+            System.out.println("No es un número del 1 al 6.");
+            scanner.close();
+            System.exit(1);
+        }
 
         System.out.println("¿Desea lanzar los dados?");
-        Boolean response = scanner.nextBoolean();
+        String response=scanner.next();
 
-        byte numR1;
-        byte numR2;
-        byte numR3;
 
-        if(response){
-            numR1=(byte)((Math.random()*6)+1);
+        if(response.equalsIgnoreCase("si")){
+            byte numR1=(byte)diceJack.rollDice();
+            byte numR2=(byte)diceJack.rollDice();
+            byte numR3=(byte)diceJack.rollDice();
 
-        }else{
-            System.exit(1);
+            byte sumNumbers=(byte)(num1+num2+num3);
+            byte sumDiceRolls=(byte)(numR1+numR2+numR3);
+
+            Boolean result= diceJack.userWon(sumNumbers,sumDiceRolls);
+        System.out.println("La suma de los números del usuario es: "+sumNumbers);
+        System.out.println("La suma de los números del ordenador es: "+sumDiceRolls);
+                if(result){
+                    System.out.println("¡Has ganado!");
+                }else{
+                    System.out.println("¡Has perdido!");
+                }
+
+        }else if(response.equalsIgnoreCase("no")){
+            System.exit(0);
+        }else {
+            System.out.println("Opción no válida, responda si o no.");
         }
-
-        if((num1<'1'||num1>'6')||(num2<'1'||num2>'6')||(num3<'1'||num3>'6')){
-            System.out.println("No es un número del 1 al 6.");
-            System.exit(1);
-        }
+        scanner.close();
     }
 
 
@@ -123,7 +138,7 @@ public class DiceJack {
 
     // Escribe tu código aquí
     int rollDice(){
-
+    return (int) (Math.random()*6)+1;
     }
 
 }
